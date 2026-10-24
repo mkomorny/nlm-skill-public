@@ -1,0 +1,48 @@
+HOW TO USE: nlm-skill
+====================================
+
+PURPOSE
+  Expert guide and automation orchestrator for Gemini Notebook (formerly Google NotebookLM)
+  via the official CLI (`nlm`) and MCP server tools, managing notebooks, sources, deep research,
+  and Studio artifact generation.
+
+CAPABILITIES
+  - Manage notebooks: create, list, rename, describe, share, and delete (with user confirmation).
+  - Add and sync diverse sources: URLs, YouTube videos, raw text, and Google Drive files.
+  - Chat with grounded sources and execute multi-turn semantic queries.
+  - Automate Studio artifact generation: podcasts, audio overviews, study guides, reports, and quizzes.
+  - Conduct background multi-source research tasks with automated import into notebooks.
+  - Support dual-mode execution: seamlessly dispatch through MCP tools or CLI commands.
+
+USE CASES
+  - Batching research across academic papers, YouTube lectures, and web documentation.
+  - Producing Audio Overviews (NotebookLM podcast-style discussions) on demand.
+  - Grounded question-answering strictly constrained to uploaded source materials.
+  - Automating the creation of executive study guides and briefing sheets.
+
+IDEAS
+  - Chain web-research-snowball into nlm-skill to auto-populate notebooks from search queries.
+  - Automate morning podcast generation by ingesting RSS feeds or daily news into a notebook.
+  - Build automated knowledge audits to check which notebooks contain specific topics.
+
+PROMPTS YOU CAN PASTE
+  /nlm-skill
+
+  List my current Gemini Notebook notebooks and tell me their source counts.
+
+  Create a new notebook titled 'Ableton Sound Design' and add this YouTube URL as a source.
+
+  Generate an Audio Overview podcast for my 'AI Engineering' notebook.
+
+  Ask my 'Product Architecture' notebook how authentication is handled across microservices.
+
+EXAMPLE FLOW
+  You:   /nlm-skill List my notebooks and show what sources are in the top one.
+  Model: Checks available MCP/CLI tools, calls `notebook_list`, presents your notebooks,
+         queries the first notebook's source manifest, and summarizes loaded documents.
+
+DEFAULT GOALS IF YOU DON'T NAME ONE
+  1. Detect available environment tools (MCP vs nlm CLI)
+  2. Inventory relevant notebooks or create target notebook
+  3. Ground answers exclusively in loaded notebook sources
+  4. Enforce mandatory user confirmation before any deletion
